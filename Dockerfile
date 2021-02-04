@@ -16,6 +16,14 @@ RUN apt update && apt install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update && apt install python3.7 -y
 
+RUN apt-get install -y python3 python-dev python3-dev \
+     build-essential libssl-dev libffi-dev \
+     libxml2-dev libxslt1-dev zlib1g-dev \
+     python-pip python3.7-dev python3-pip
+
+RUN python3.7 -m pip install --upgrade pip
+RUN ln -sfn /usr/bin/python3.7 /usr/bin/python3
+
 RUN apt update && apt install git -y
 RUN git clone https://github.com/UKPLab/sentence-transformers.git
 
