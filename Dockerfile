@@ -12,6 +12,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     gpg
 
+RUN apt update && apt install software-properties-common -y
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt update && apt install python3.7 -y
+
 RUN apt update && apt install git -y
 RUN git clone https://github.com/UKPLab/sentence-transformers.git
 
